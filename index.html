@@ -1,170 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - NerdHelp</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
-        }
-        header {
-            background-color: #1e293b;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-        .logo {
-            height: 50px;
-        }
-        nav {
-            display: flex;
-            gap: 20px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio - NerdHelp</title>
+  <link rel="icon" type="image/png" href="inicial/banana.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 4px 0;
-        }
-        .mobile-nav {
-            display: none;
-            position: absolute;
-            top: 70px;
-            right: 20px;
-            background-color: #1e293b;
-            flex-direction: column;
-            width: 200px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-        }
-        .mobile-nav a {
-            padding: 15px;
-            border-bottom: 1px solid #334155;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
 
-        .container {
-            padding: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .project {
-            margin-bottom: 30px;
-        }
-        .project img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-        footer {
-            background-color: #1e293b;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 60px;
-        }
+    header {
+      background-color: #1e293b;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
 
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .mobile-nav {
-                display: flex;
-            }
-        }
-    </style>
+    header img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #1e293b;
+      position: absolute;
+      top: 70px;
+      right: 40px;
+      padding: 20px;
+      border-radius: 8px;
+      z-index: 10;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align:center;
+      margin-bottom: 60px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #1e293b;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #555;
+    }
+
+    footer {
+      background-color: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .mobile-menu.show {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <img src="banana.png" alt="NerdHelp Logo" class="logo">
-
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-
-        <nav>
-            <a href="https://kauan-turra.github.io/inicial/">Início</a>
-            <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
-            <a href="https://kauan-turra.github.io/portfolio/">Portfólio</a>
-            <a href="https://kauan-turra.github.io/contato/">Contato</a>
-        </nav>
-
-        <div class="mobile-nav" id="mobileNav">
-            <a href="https://kauan-turra.github.io/inicial/">Início</a>
-            <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
-            <a href="https://kauan-turra.github.io/portfolio/">Portfólio</a>
-            <a href="https://kauan-turra.github.io/contato/">Contato</a>
-        </div>
-    </header>
-
-    <div class="container">
-        <h1 style="text-align: center; margin-bottom: 40px;">Portfólio</h1>
-
-        <div class="project">
-            <h2>Projetos Desenvolvidos</h2>
-            <p>Aqui estão alguns dos projetos que desenvolvi, disponíveis também no meu <a href="https://kauan-turra.github.io/projetos-kauan-turra-2025/" target="_blank">site pessoal</a>.</p>
-            <br>
-            <img src="portfolio/print1.png" alt="Projeto 1">
-            <p><strong>Medidor de Tinta:</strong> Uma aplicação web que calcula a quantidade de tinta necessária para pintar uma parede.</p>
-        </div>
-
-        <div class="project">
-            <img src="portfolio/print2.png" alt="Projeto 2">
-            <p><strong>Site de Vendas:</strong> Loja online com layout responsivo e integração básica de produtos.</p>
-        </div>
-
-        <div class="project">
-            <img src="portfolio/print3.png" alt="Projeto 3">
-            <p><strong>Landing Page:</strong> Página para captação de leads e apresentação de serviços.</p>
-        </div>
-
+  <header>
+    <div>
+      <img src="banana.png" alt="Logo NerdHelp">
     </div>
 
-    <footer>
-        © 2025 NerdHelp. Todos os direitos reservados.
-    </footer>
+    <nav class="desktop-menu">
+      <a href="https://kauan-turra.github.io/inicial/">Início</a>
+      <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
+      <a href="https://kauan-turra.github.io/portfolio/">Portfólio</a>
+      <a href="https://kauan-turra.github.io/contato/">Contato</a>
+    </nav>
 
-    <script>
-        function toggleMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            if (mobileNav.style.display === 'flex') {
-                mobileNav.style.display = 'none';
-            } else {
-                mobileNav.style.display = 'flex';
-            }
-        }
-    </script>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="https://kauan-turra.github.io/inicial/">Início</a>
+      <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
+      <a href="https://kauan-turra.github.io/portfolio/">Portfólio</a>
+      <a href="https://kauan-turra.github.io/contato/">Contato</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="hero">
+      <h1>Nosso Portfólio</h1>
+      <p>Veja alguns dos nossos projetos já realizados!</p>
+    </section>
+
+    <section>
+      <h2>Exemplos de projetos</h2>
+      <ul style="margin-top: 10px; line-height: 1.6;">
+        <li>💻 Site institucional para empresa de informática</li>
+        <li>🛒 Loja virtual com sistema de pagamento integrado</li>
+        <li>📱 Aplicativo web para controle de tarefas</li>
+        <li>🌐 Blog otimizado para SEO com painel de posts</li>
+        <li>🛠️ Página de serviços para assistência técnica</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 NerdHelp. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
+    }
+  </script>
 
 </body>
 </html>
