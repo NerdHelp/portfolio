@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfólio - NerdHelp</title>
-  <link rel="icon" type="image/png" href="inicial/banana.png">
+  <link rel="icon" type="image/png" href="banana.png">
   <style>
     * {
       margin: 0;
@@ -86,20 +86,17 @@
       margin: 0 auto;
     }
 
-    .hero {
-      text-align:center;
-      margin-bottom: 60px;
+    .project {
+      margin-bottom: 40px;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      color: #1e293b;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      color: #555;
+    .project img {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 10px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     footer {
@@ -123,10 +120,6 @@
         display: flex;
       }
 
-      .hero h1 {
-        font-size: 2rem;
-      }
-
       .container {
         padding: 20px;
       }
@@ -140,6 +133,7 @@
       <img src="banana.png" alt="Logo NerdHelp">
     </div>
 
+    <!-- Menu padrão para desktop -->
     <nav class="desktop-menu">
       <a href="https://kauan-turra.github.io/inicial/">Início</a>
       <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
@@ -147,12 +141,14 @@
       <a href="https://kauan-turra.github.io/contato/">Contato</a>
     </nav>
 
+    <!-- Botão de menu hamburguer -->
     <div class="menu-toggle" onclick="toggleMenu()">
       <div></div>
       <div></div>
       <div></div>
     </div>
 
+    <!-- Menu mobile -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="https://kauan-turra.github.io/inicial/">Início</a>
       <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
@@ -162,21 +158,27 @@
   </header>
 
   <div class="container">
-    <section class="hero">
-      <h1>Nosso Portfólio</h1>
-      <p>Veja alguns dos nossos projetos já realizados!</p>
-    </section>
+    <h1 style="text-align: center; margin-bottom: 40px;">Portfólio</h1>
 
-    <section>
-      <h2>Exemplos de projetos</h2>
-      <ul style="margin-top: 10px; line-height: 1.6;">
-        <li>💻 Site institucional para empresa de informática</li>
-        <li>🛒 Loja virtual com sistema de pagamento integrado</li>
-        <li>📱 Aplicativo web para controle de tarefas</li>
-        <li>🌐 Blog otimizado para SEO com painel de posts</li>
-        <li>🛠️ Página de serviços para assistência técnica</li>
-      </ul>
-    </section>
+    <div class="project">
+      <h2>Projetos Desenvolvidos</h2>
+      <p>Aqui estão alguns dos projetos que desenvolvi, disponíveis também no meu 
+        <a href="https://kauan-turra.github.io/projetos-kauan-turra-2025/" target="_blank">site pessoal</a>.
+      </p>
+      <br>
+      <img src="portfolio/print1.png" alt="Projeto 1">
+      <p><strong>Medidor de Tinta:</strong> Uma aplicação web que calcula a quantidade de tinta necessária para pintar uma parede.</p>
+    </div>
+
+    <div class="project">
+      <img src="portfolio/print2.png" alt="Projeto 2">
+      <p><strong>Site de Vendas:</strong> Loja online com layout responsivo e integração básica de produtos.</p>
+    </div>
+
+    <div class="project">
+      <img src="portfolio/print3.png" alt="Projeto 3">
+      <p><strong>Landing Page:</strong> Página para captação de leads e apresentação de serviços.</p>
+    </div>
   </div>
 
   <footer>
