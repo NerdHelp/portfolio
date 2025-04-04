@@ -22,19 +22,51 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         .logo {
             height: 50px;
         }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
             font-weight: bold;
         }
         nav a:hover {
             text-decoration: underline;
         }
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            background-color: #1e293b;
+            width: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 10;
+        }
+        .mobile-menu a {
+            padding: 15px;
+            border-bottom: 1px solid #334155;
+        }
+
         .container {
             padding: 40px;
             max-width: 1000px;
@@ -55,18 +87,41 @@
             padding: 20px;
             margin-top: 60px;
         }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .menu-icon {
+                display: flex;
+            }
+            .mobile-menu {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <img src="banana.png" alt="NerdHelp Logo" class="logo">
-        <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="desktop-menu">
             <a href="https://kauan-turra.github.io/inicial/">Início</a>
             <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
             <a href="https://kauan-turra.github.io/portfolio/">Portfólio</a>
             <a href="https://kauan-turra.github.io/contato/">Contato</a>
         </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="https://kauan-turra.github.io/inicial/">Início</a>
+            <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
+            <a href="https://kauan-turra.github.io/portfolio/">Portfólio</a>
+            <a href="https://kauan-turra.github.io/contato/">Contato</a>
+        </div>
     </header>
 
     <div class="container">
@@ -95,6 +150,13 @@
     <footer>
         © 2025 NerdHelp. Todos os direitos reservados.
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 
 </body>
 </html>
