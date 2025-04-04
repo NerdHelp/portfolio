@@ -18,7 +18,7 @@
         header {
             background-color: #1e293b;
             color: white;
-            padding: 20px 40px;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,30 +39,31 @@
         nav a:hover {
             text-decoration: underline;
         }
-        .menu-icon {
+
+        .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
         }
-        .menu-icon div {
+        .hamburger div {
             width: 25px;
             height: 3px;
             background-color: white;
             margin: 4px 0;
         }
-        .mobile-menu {
+        .mobile-nav {
             display: none;
-            flex-direction: column;
             position: absolute;
-            top: 100%;
+            top: 70px;
             right: 20px;
             background-color: #1e293b;
+            flex-direction: column;
             width: 200px;
-            border-radius: 8px;
-            overflow: hidden;
-            z-index: 10;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
         }
-        .mobile-menu a {
+        .mobile-nav a {
             padding: 15px;
             border-bottom: 1px solid #334155;
         }
@@ -92,10 +93,10 @@
             nav {
                 display: none;
             }
-            .menu-icon {
+            .hamburger {
                 display: flex;
             }
-            .mobile-menu {
+            .mobile-nav {
                 display: flex;
             }
         }
@@ -105,18 +106,21 @@
 
     <header>
         <img src="banana.png" alt="NerdHelp Logo" class="logo">
-        <div class="menu-icon" onclick="toggleMenu()">
+
+        <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
-        <nav class="desktop-menu">
+
+        <nav>
             <a href="https://kauan-turra.github.io/inicial/">Início</a>
             <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
             <a href="https://kauan-turra.github.io/portfolio/">Portfólio</a>
             <a href="https://kauan-turra.github.io/contato/">Contato</a>
         </nav>
-        <div class="mobile-menu" id="mobileMenu">
+
+        <div class="mobile-nav" id="mobileNav">
             <a href="https://kauan-turra.github.io/inicial/">Início</a>
             <a href="https://kauan-turra.github.io/servi-os/">Serviços</a>
             <a href="https://kauan-turra.github.io/portfolio/">Portfólio</a>
@@ -153,8 +157,12 @@
 
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileNav.style.display === 'flex') {
+                mobileNav.style.display = 'none';
+            } else {
+                mobileNav.style.display = 'flex';
+            }
         }
     </script>
 
